@@ -1,0 +1,236 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="LibreOffice 4.1.2.3 (Linux)">
+	<META NAME="CREATED" CONTENT="20140219;1727020994">
+	<META NAME="CHANGED" CONTENT="20140221;20352691663109">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { margin: 0.79in }
+		P { margin-bottom: 0.08in }
+		A:link { so-language: zxx }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in"><FONT FACE="Arial, sans-serif"><FONT SIZE=4 STYLE="font-size: 16pt"><B>Simplified
+Workshop Series </B></FONT></FONT>
+</P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in"><FONT FACE="Arial, sans-serif"><FONT SIZE=4 STYLE="font-size: 16pt"><B>Design
+Time Governance</B></FONT></FONT></P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in"><FONT FACE="Arial, sans-serif"><FONT SIZE=4 STYLE="font-size: 16pt"><B>in
+Fuse Service Works</B></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="Arial, sans-serif">Welcome
+to the Simplified demo series. I refer to this as a workshop in a
+box, meaning everything is included to get you started such as the
+source, instructions, videos, presentations, etc. This demo will walk
+you through a quick demo of Design Time Governance in Fuse Service
+Works. It is split into 3 main sections. First is the quick demo
+which walks you through the quick steps to run a quick, easy demo
+(The What). The second section gives an overview of the technology
+and how the demo was created (The Why and How). The third section
+gives you additional collateral. So let’s get started and as they
+say so easy a non techie can do it...</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="Arial, sans-serif"><B>Section
+1 : Run a quick demo</B></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; font-weight: normal"><FONT FACE="Arial, sans-serif">NOTE:
+Screen shots and more step by step for creating/running the demo from
+scratch are in section 2.</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="Arial, sans-serif"><SPAN STYLE="font-weight: normal">Step
+1: Clone the repository from
+<A HREF="https://github.com/kpeeples/simplified-dtgov.git">https://github.com/kpeeples/simplified-dtgov.git</A></SPAN></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="Arial, sans-serif">Step 2:
+Download Fuse Service Works from
+<A HREF="http://www.jboss.org/products/fsw.html">http://www.jboss.org/products/fsw.html</A></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="Arial, sans-serif">Step 3:
+Place the software in the distros folder</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="Arial, sans-serif">Step 4:
+Modify the support/InstallationScript.xml file to contain the full
+path to the installed/fsw directory. Make sure to leave the
+installed/fsw directory. The script performs the automated install of
+Fuse Service Works. You will notice in the installation script the
+components that are being installed. During the setup you will be
+prompted to enter the passwords for Governance, SAML keystore and
+vault keystore passwords. Enter <I>redhat1! </I>to match the demo.
+NOTE: This is installing the Switchyard, DTGov, S-RAMP and RTGov
+components which wouldn’t be the recommended setup as Design Time
+would be a separate server from the Switchyard/Run Time Server. </FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; background: #dddddd"><FONT FACE="Arial, sans-serif">&lt;installpath&gt;/home/kpeeples/demos/fsw-simple-demo/installed/fsw&lt;/installpath&gt;</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="Arial, sans-serif">Step 5:
+Modify the post-run.sh file to have the appropriate directory of the
+fsw-simple-demo for the link for the production server. This allows
+for the demo to be installed on the server after moving to the prod
+task in the DTGov workflow.</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; background: #dddddd"><FONT FACE="Arial, sans-serif">ln
+-sv /tmp/prod/jbossas7/standalone/deployments
+/home/kpeeples/demos/fsw-simple-demo/installed/fsw/jboss-eap-6.1/standalone/deployments</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="Arial, sans-serif">Step 6:
+Run the install-run.sh script to install FSW and start the server</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="Arial, sans-serif">Step 7:
+Open another terminal and run the post-run.sh script. This may take a
+little bit of time to compile and deploy the default DTGov workflow,
+compile and deploy the switchyard demo to dtgov/s-ramp and create the
+link for the production server. The build should be created
+successfully.</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="Arial, sans-serif">Step 8:
+The demo is now setup. First browse to <A HREF="http://localhost:8080/dtgov-ui">http://localhost:8080/dtgov-ui</A>
+and sign on with fswAdmin and redhat1!</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="Arial, sans-serif">Step 9:
+View Deployments. Click on deployments under deployment life cycle.
+You should see the
+</FONT><A HREF="http://localhost:8080/dtgov-ui/#deploymentDetails;uuid=79d82333-7149-4930-9b66-d359d2ba8a42"><SPAN STYLE="font-variant: normal"><FONT COLOR="#0088cc"><SPAN STYLE="text-decoration: none"><FONT FACE="Helvetica Neue, Helvetica, Arial, sans-serif"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">switchyard-quickstart-demo-orders-1.1.1-p5-redhat-1.war</SPAN></SPAN></FONT></FONT></SPAN></FONT></SPAN></A><SPAN STYLE="font-variant: normal"><FONT COLOR="#0088cc"><SPAN STYLE="text-decoration: none">
+</SPAN></FONT></SPAN><SPAN STYLE="font-variant: normal"><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Arial, sans-serif"><FONT SIZE=3><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">deployment.
+Click on the deployment to see the deployment history, deployment
+contents and browse in S-RAMP options. </SPAN></SPAN></FONT></FONT></SPAN></FONT></SPAN>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="Arial, sans-serif">Step 10:
+Move the deployment through the workflow. Click on the DTGov
+dashboard on the breadcrumbs. Click on task inbox. Select the second
+TestDev and check the artifact which should be the switchyard war
+deployment. The first is the source jar. Notice it indicates deployed
+to target /tmp/dev. The dtgov properties file indicates the
+deployment targets which default to the file copy. We setup a link in
+tmp to the deployment folder for the server for testing so that once
+the task hits prod then the war will be deployed to the server. Click
+Claim, Start, Pass, Complete. Then click on Task inbox. You will now
+see Test QA. Click on the task and follow the same process to move
+the depoyment to stage. Do the same for the Test Stage task. Once in
+Test Prod the war has been deployed to the server.</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="Arial, sans-serif">Step 11:
+Test the Orders Demo once deployed to Production. Now that the
+deployment is in Prod we can test the application. Browse to the
+Order Service at <A HREF="http://localhost:8080/demo-orders/OrderService?wsdl">http://localhost:8080/demo-orders/OrderService?wsdl</A>.
+Browse to the application screen
+</FONT><SPAN STYLE="font-variant: normal"><FONT COLOR="#888888"><SPAN STYLE="text-decoration: none"><FONT FACE="Arial, Tahoma, Helvetica, FreeSans, sans-serif"><FONT SIZE=3><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal"><A HREF="http://localhost:8080/switchyard-quickstart-demo-orders-1.1.1-p5-redhat-1/home.jsf">http://localhost:8080/switchyard-quickstart-demo-orders-1.1.1-p5-redhat-1/home.jsf</A>
+</SPAN></SPAN></FONT></FONT></SPAN></FONT></SPAN><SPAN STYLE="font-variant: normal"><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Arial, Tahoma, Helvetica, FreeSans, sans-serif"><FONT SIZE=3><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">enter
+PS-19838-XY for the order ID and BUTTER for the Item Id. Click Create
+to have the order accepted.</SPAN></SPAN></FONT></FONT></SPAN></FONT></SPAN></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Arial, Tahoma, Helvetica, FreeSans, sans-serif"><FONT SIZE=3>This
+is a quick demo of an artifact going through the DTGov workflow. More
+detail of configuration and step by step are below.</FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="Arial, sans-serif"><B>Section
+2 : Technology Overview and creating the demo step by step</B></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="Arial, sans-serif">Technology
+Overview</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="Arial, sans-serif">Step by
+Step</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="Arial, sans-serif"><B>Section
+3 : Additional Collateral and demo structure</B></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal">
+<FONT COLOR="#000000"><FONT FACE="Arial, sans-serif"><FONT SIZE=4><BR>The
+root folder of the demo contains:</FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal">
+	<FONT COLOR="#000000"><FONT FACE="Arial, sans-serif"><FONT SIZE=4>install-run.sh
+	to install and run FSW</FONT></FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal">
+	<FONT COLOR="#000000"><FONT FACE="Arial, sans-serif"><FONT SIZE=4>pre-run.sh
+	to do any pre-installation setup or compiling</FONT></FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal">
+	<FONT COLOR="#000000"><FONT FACE="Arial, sans-serif"><FONT SIZE=4>post-run.sh
+	to do any post-install setup or compiling</FONT></FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal">
+	<FONT COLOR="#000000"><FONT FACE="Arial, sans-serif"><FONT SIZE=4>README.MD
+	to briefly descibe the demo</FONT></FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal">
+	<FONT COLOR="#000000"><FONT FACE="Arial, sans-serif"><FONT SIZE=4>readme.html
+	to meet the objectives 1) quick and easy demo 2) step by step
+	instructions with collateral</FONT></FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal">
+	<FONT COLOR="#000000"><FONT FACE="Arial, sans-serif"><FONT SIZE=4>reset.sh
+	to reset the demo</FONT></FONT></FONT></P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal">
+<FONT COLOR="#000000"><FONT FACE="Arial, sans-serif"><FONT SIZE=4>The
+collateral folder contains:</FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal">
+	<FONT COLOR="#000000"><FONT FACE="Arial, sans-serif"><FONT SIZE=4>Video
+	for videos or link to video</FONT></FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal">
+	<FONT COLOR="#000000"><FONT FACE="Arial, sans-serif"><FONT SIZE=4>Presentation
+	for presentations or link to presentation</FONT></FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal">
+	<FONT COLOR="#000000"><FONT FACE="Arial, sans-serif"><FONT SIZE=4>Blog
+	for a blog document or link to blog</FONT></FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal">
+	<FONT COLOR="#000000"><FONT FACE="Arial, sans-serif"><FONT SIZE=4>Simulation
+	for a simulation of the demo or link to simulation</FONT></FONT></FONT></P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal">
+<FONT COLOR="#000000"><FONT FACE="Arial, sans-serif"><FONT SIZE=4>The
+distros folder contain the downloads for the demo</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal">
+<FONT COLOR="#000000"><FONT FACE="Arial, sans-serif"><FONT SIZE=4>The
+installed folder contains subfolders for the software to be installed
+when the script is run</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal">
+<FONT COLOR="#000000"><FONT FACE="Arial, sans-serif"><FONT SIZE=4>The
+source folder contains any source projects to be compiled and
+deployed</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal">
+<FONT COLOR="#000000"><FONT FACE="Arial, sans-serif"><FONT SIZE=4>The
+support folder contains any supporting files/directories</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="Arial, sans-serif"><B>Closing</B></FONT></P>
+</BODY>
+</HTML>
